@@ -1,0 +1,56 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Adicione o seguinte elemento <META> à sua página <HEAD>.  Se      -->
+<!--  necessário, modifique o parâmetro charset para especificar o conjunto   -->
+<!--  de caracteres de sua página HTML.                                       -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTA: Adicione o elemento <FORM> a seguir à sua página.                 -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+    
+    <input type=hidden name="oid" value="00DG0000000khTF">
+    <input type=hidden name="retURL" value="https://landing.infracommerce.com.br/infrashop">
+    
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTA: Estes campos são elementos de depuração opcionais. Remova o       -->
+    <!--  comentário dessas linhas se quiser testar no modo de depuração.         -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="growth@infracommerce.com.br">                              -->
+    <!--  ----------------------------------------------------------------------  -->
+    
+    <label for="first_name">Primeiro Nome</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+    
+    <label for="last_name">Sobrenome</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    
+    <label for="company">Empresa</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+    
+    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+    
+    <label for="phone">Telefone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+    
+    Como podemos ajudar?:<textarea  id="00N8Y00000FTpjI" name="00N8Y00000FTpjI" type="text" wrap="soft"></textarea><br>
+    
+    LGPD:<input  id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1" /><br>
+    <p style="color: red">*Ao preencher o formulário e clicar no checkbox, você expressamente declara que está ciente de que a nossa empresa poderá realizar contato com você via e-mail, telefone, WhatsApp ou qualquer outro meio e enviar comunicações para o fim exclusivo de apresentar conteúdos, produtos e serviços relacionados à Infracommerce</p><br>
+    
+    
+    <input type="hidden" name="lead_source" value="Inbound"> 
+    <input type="hidden" name="00NG000000DAIJX" value="Infrashop">
+    
+    
+    <input type="submit" name="submit">
+    
+    </form>
+    
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/jquery.mask/1.14.10/jquery.mask.min.js'></script>
+    
+    <script>
+        $("#phone").mask("(99) 9999-999999");
+    </script>

@@ -1,0 +1,164 @@
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Adicione o seguinte elemento <META> à sua página <HEAD>.  Se      -->
+<!--  necessário, modifique o parâmetro charset para especificar o conjunto   -->
+<!--  de caracteres de sua página HTML.                                       -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Adicione o elemento <FORM> a seguir à sua página.                 -->
+<!--  ----------------------------------------------------------------------  -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    form {
+        font-family: Ubuntu, Helvetica, sans-serif;
+        width: 80vw;
+        margin: 0 auto;
+        background-color: #3d3654;
+    }
+
+    label {
+        display: block;
+        font-size: 15px;
+        margin-bottom: 5px;
+        font-weight: 700;
+        color: white;
+    }
+
+    input[type=text],
+    textarea {
+        width: 100%;
+    }
+
+    input[type=text],
+    textarea {
+        display: block;
+        height: 38px;
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .checkbox {
+        display: flex;
+        margin-bottom: 5px;
+    }
+
+    .checkbox label {
+        display: block;
+        padding-left: 15px;
+        text-indent: -15px;
+    }
+
+    .checkbox input {
+        width: 15px;
+        height: 15px;
+        padding: 0;
+        margin: 0;
+        vertical-align: bottom;
+        position: relative;
+        transform: scale(1);
+        margin-right: 10px;
+    }
+
+    .checkbox span {
+        display: block;
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    input[type=submit] {
+        display: inline-block;
+        padding: 9px 15px;
+        background-color: #e52862;
+        color: #fff;
+        border: 0;
+        line-height: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    @media(min-width: 320px) and (max-width: 1000px) {
+
+        input[type=text],
+        textarea {
+            width: 80vw;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        .checkbox input {
+            top: 10px;
+            transform: scale(2);
+            margin-right: 20px;
+        }
+
+    }
+</style>
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+    <input type=hidden name="oid" value="00DG0000000khTF">
+    <input type=hidden name="retURL" value="https://landing.infracommerce.com.br/infradigital">
+
+    <!--  ----------------------------------------------------------------------  -->
+    <!--  NOTA: Estes campos são elementos de depuração opcionais. Remova o       -->
+    <!--  comentário dessas linhas se quiser testar no modo de depuração.         -->
+    <!--  <input type="hidden" name="debug" value=1>                              -->
+    <!--  <input type="hidden" name="debugEmail"                                  -->
+    <!--  value="growth@infracommerce.com.br">                              -->
+    <!--  ----------------------------------------------------------------------  -->
+
+    <label for="first_name">Primeiro Nome</label>
+    <input id="first_name" maxlength="40" name="first_name" type="text" />
+
+    <label for="last_name">Sobrenome</label>
+    <input id="last_name" maxlength="80" name="last_name" type="text" />
+
+    <label for="company">Empresa</label>
+    <input id="company" maxlength="40" name="company" type="text" />
+
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" type="text" />
+
+    <label for="phone">Telefone</label>
+    <input id="phone" maxlength="40" name="phone" type="text" />
+
+    <label for="00N8Y00000FTpjI">Como podemos Ajudar?</label>
+    <textarea id="00N8Y00000FTpjI" name="00N8Y00000FTpjI" type="text" wrap="soft"></textarea>
+
+    <label for="00N8Y00000GXh6b" class="checkbox">
+        <input id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1">
+        <span>Ao preencher o formulário e clicar no checkbox,
+            você expressamente declara que está
+            ciente de que a nossa
+            empresa poderá realizar contato com você via e-mail, telefone, WhatsApp ou qualquer outro meio e enviar
+            comunicações para o fim exclusivo de apresentar conteúdos, produtos e serviços relacionados à
+            Infracommerce</span>
+    </label>
+    <br>
+
+    <input type="hidden" name="lead_source" value="Inbound">
+    <input type="hidden" name="00NG000000DAIJX" value="Infradigital">
+
+    <input type="submit" name="submit">
+
+</form>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.mask/1.14.10/jquery.mask.min.js'></script>
+
+<script>
+    $("#phone").mask("(99) 9999-999999");
+</script>
