@@ -1,172 +1,184 @@
 <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-    
-        form {
-            font-family: Ubuntu, Helvetica, sans-serif;
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    form {
+        font-family: Ubuntu, Helvetica, sans-serif;
+        width: 80vw;
+        margin: 0 auto;
+        background-color: #3d3654;
+    }
+
+    label {
+        display: block;
+        font-size: 15px;
+        margin-bottom: 5px;
+        font-weight: 700;
+        color: white;
+    }
+
+    label::after {
+        content: '*';
+        color: red;
+        font-weight: normal;
+    }
+
+    .label-checkbox::after {
+        content: '';
+    }
+
+    input[type=text],
+    textarea {
+        width: 100%;
+    }
+
+    input[type=text],
+    textarea {
+        display: block;
+        height: 38px;
+        padding: 8px 12px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .checkbox {
+        display: flex;
+        margin-bottom: 5px;
+    }
+
+    .checkbox label {
+        display: block;
+        text-indent: -2px;
+    }
+
+    .checkbox input {
+        width: 15px;
+        height: 15px;
+        padding: 0;
+        margin: 0;
+        vertical-align: bottom;
+        position: relative;
+        transform: scale(1);
+        margin-right: 10px;
+    }
+
+    .checkbox span {
+        display: block;
+        cursor: pointer;
+        font-weight: 400;
+    }
+
+    input[type=submit] {
+        display: inline-block;
+        padding: 9px 15px;
+        background-color: #ffac48;
+        color: #fff;
+        border: 0;
+        line-height: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 0;
+    }
+
+    @media(min-width: 320px) and (max-width: 1000px) {
+
+        input[type=text],
+        textarea {
             width: 80vw;
-            margin: 0 auto;
-            background-color: #3d3654;
         }
-    
+
         label {
-            display: block;
-            font-size: 15px;
-            margin-bottom: 5px;
-            font-weight: 700;
-            color: white;
+            font-size: 20px;
         }
-    
-        input[type=text],
-        textarea {
-            width: 100%;
-        }
-    
-        input[type=text],
-        textarea {
-            display: block;
-            height: 38px;
-            padding: 8px 12px;
-            margin-bottom: 10px;
-            font-size: 14px;
-            line-height: 1.42857143;
-            color: #333;
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
-    
-        .checkbox {
-            display: flex;
-            margin-bottom: 5px;
-        }
-    
+
         .checkbox label {
-            display: block;
-            text-indent: -2px;
+            font-size: 12px;
         }
-    
+
         .checkbox input {
-            width: 15px;
-            height: 15px;
-            padding: 0;
-            margin: 0;
-            vertical-align: bottom;
-            position: relative;
-            transform: scale(1);
-            margin-right: 10px;
+            top: 10px;
+            transform: scale(2);
+            margin-right: 20px;
         }
-    
-        .checkbox span {
-            display: block;
-            cursor: pointer;
-            font-weight: 400;
+
+    }
+</style>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function timestamp() {
+        var response = document.getElementById("g-recaptcha-response");
+        if (response == null || response.value.trim() == "") {
+            var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
+            elems["ts"] = JSON.stringify(new Date().getTime());
+            document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
         }
-    
-        input[type=submit] {
-            display: inline-block;
-            padding: 9px 15px;
-            background-color: #ffac48;
-            color: #fff;
-            border: 0;
-            line-height: inherit;
-            text-decoration: none;
-            cursor: pointer;
-            border-radius: 0;
-        }
-    
-        @media(min-width: 320px) and (max-width: 1000px) {
-    
-            input[type=text],
-            textarea {
-                width: 80vw;
-            }
-    
-            label {
-                font-size: 20px;
-            }
-    
-            .checkbox label {
-                font-size: 12px;
-            }
-    
-            .checkbox input {
-                top: 10px;
-                transform: scale(2);
-                margin-right: 20px;
-            }
-    
-        }
-    </style>
-    
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        function timestamp() {
-            var response = document.getElementById("g-recaptcha-response");
-            if (response == null || response.value.trim() == "") {
-                var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
-                elems["ts"] = JSON.stringify(new Date().getTime());
-                document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
-            }
-        }
-        setInterval(timestamp, 500);
-    </script>
-    
-    <!--  ----------------------------------------------------------------------  -->
-    <!--  NOTA: Adicione o elemento <FORM> a seguir à sua página.                 -->
-    <!--  ----------------------------------------------------------------------  -->
-    
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
-    
-        <input type=hidden name='captcha_settings'
-            value='{"keyname":"web_to_lead","fallback":"true","orgId":"00DG0000000khTF","ts":""}'>
-        <input type=hidden name="oid" value="00DG0000000khTF">
-        <input type=hidden name="retURL" value="https://www.infracommerce.com.br/">
-    
-        <label for="first_name">Primeiro Nome</label>
-        <input id="first_name" maxlength="40" name="first_name" size="20" type="text" />
-        <br>
-    
-        <label for="last_name">Sobrenome</label>
-        <input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-    
-        <label for="company">Empresa</label>
-        <input id="company" maxlength="40" name="company" size="20" type="text" />
-        <br>
-    
-        <label for="email">Email</label>
-        <input id="email" maxlength="80" name="email" size="20" type="text" />
-        <br>
-    
-        <label for="phone">Telefone</label>
-        <input id="phone" maxlength="40" name="phone" size="20" type="text" />
-        <br>
-    
-        <label for="00NG000000CTFWnMAP">Como podemos ajudar?:</label>
-        <textarea id="00NG000000CTFWnMAP" name="00NG000000CTFWnMAP" type="text" wrap="soft">
-        </textarea>
-        <br>
-    
-        <div class="checkbox">
-            <input id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1" />
-            <label for="00N8Y00000GXh6b">Ao preencher o formulário e clicar no checkbox, você expressamente declara que está
-                ciente de
-                que a nossa empresa poderá realizar contato com você via e-mail, telefone, WhatsApp ou qualquer outro meio e
-                enviar comunicações para o fim exclusivo de apresentar conteúdos, produtos e serviços relacionados à
-                Infracommerce</label>
-        </div>
-    
-        <input type="hidden" name="lead_source" value="Site principal">
-    
-        <div class="g-recaptcha" data-sitekey="6LfO7BkiAAAAAO6WG5Wbu19oW9vXZPXewris3h_k"></div>
-        <br>
-        <input type="submit" name="submit">
-    
-    </form>
-    
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/jquery.mask/1.14.10/jquery.mask.min.js'></script>
-    
-    <script>
-        $("#phone").mask("(99) 9999-999999");
-    </script>
+    }
+    setInterval(timestamp, 500);
+</script>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTA: Adicione o elemento <FORM> a seguir à sua página.                 -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+    <input type=hidden name='captcha_settings'
+        value='{"keyname":"web_to_lead","fallback":"true","orgId":"00DG0000000khTF","ts":""}'>
+    <input type=hidden name="oid" value="00DG0000000khTF">
+    <input type=hidden name="retURL" value="https://www.infracommerce.com.br/">
+
+    <label for="first_name">Primeiro Nome</label>
+    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required />
+    <br>
+
+    <label for="last_name">Sobrenome</label>
+    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required />
+    <br>
+
+    <label for="company">Empresa</label>
+    <input id="company" maxlength="40" name="company" size="20" type="text" required />
+    <br>
+
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" size="20" type="text" required />
+    <br>
+
+    <label for="phone">Telefone</label>
+    <input id="phone" maxlength="40" name="phone" size="20" type="text" required />
+    <br>
+
+    <label for="00NG000000CTFWnMAP">Como podemos ajudar?:</label>
+    <textarea id="00NG000000CTFWnMAP" name="00NG000000CTFWnMAP" type="text" wrap="soft" required>
+    </textarea>
+    <br>
+
+    <div class="checkbox">
+        <input id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1" required />
+        <label for="00N8Y00000GXh6b" class="label-checkbox">Ao preencher o formulário e clicar no checkbox, você
+            expressamente declara que está
+            ciente de
+            que a nossa empresa poderá realizar contato com você via e-mail, telefone, WhatsApp ou qualquer outro meio e
+            enviar comunicações para o fim exclusivo de apresentar conteúdos, produtos e serviços relacionados à
+            Infracommerce</label>
+    </div>
+
+    <input type="hidden" name="lead_source" value="Site principal">
+
+    <div class="g-recaptcha" data-sitekey="6LfO7BkiAAAAAO6WG5Wbu19oW9vXZPXewris3h_k"></div>
+    <br>
+    <input type="submit" name="submit">
+
+</form>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.mask/1.14.10/jquery.mask.min.js'></script>
+
+<script>
+    $("#phone").mask("(99) 9999-999999");
+</script>

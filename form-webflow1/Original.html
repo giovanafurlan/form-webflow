@@ -18,6 +18,16 @@
         color: white;
     }
 
+    label::after {
+        content: '*';
+        color: red;
+        font-weight: normal;
+    }
+
+    .label-checkbox::after {
+        content: '';
+    }
+
     input[type=text],
     textarea {
         width: 100%;
@@ -66,7 +76,7 @@
     input[type=submit] {
         display: inline-block;
         padding: 9px 15px;
-        /* background-color: #ffac48; */
+        background-color: #ffac48;
         color: #fff;
         border: 0;
         line-height: inherit;
@@ -124,32 +134,34 @@
     <input type=hidden name="retURL" value="https://www.infracommerce.com.br/">
 
     <label for="first_name">Primeiro Nome</label>
-    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+    <input id="first_name" maxlength="40" name="first_name" size="20" type="text" required />
     <br>
 
     <label for="last_name">Sobrenome</label>
-    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+    <input id="last_name" maxlength="80" name="last_name" size="20" type="text" required />
+    <br>
 
     <label for="company">Empresa</label>
-    <input id="company" maxlength="40" name="company" size="20" type="text" />
+    <input id="company" maxlength="40" name="company" size="20" type="text" required />
     <br>
 
     <label for="email">Email</label>
-    <input id="email" maxlength="80" name="email" size="20" type="text" />
+    <input id="email" maxlength="80" name="email" size="20" type="text" required />
     <br>
 
     <label for="phone">Telefone</label>
-    <input id="phone" maxlength="40" name="phone" size="20" type="text" />
+    <input id="phone" maxlength="40" name="phone" size="20" type="text" required />
     <br>
 
     <label for="00NG000000CTFWnMAP">Como podemos ajudar?:</label>
-    <textarea id="00NG000000CTFWnMAP" name="00NG000000CTFWnMAP" type="text" wrap="soft">
+    <textarea id="00NG000000CTFWnMAP" name="00NG000000CTFWnMAP" type="text" wrap="soft" required>
     </textarea>
     <br>
 
     <div class="checkbox">
-        <input id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1" />
-        <label for="00N8Y00000GXh6b">Ao preencher o formulário e clicar no checkbox, você expressamente declara que está
+        <input id="00N8Y00000GXh6b" name="00N8Y00000GXh6b" type="checkbox" value="1" required />
+        <label for="00N8Y00000GXh6b" class="label-checkbox">Ao preencher o formulário e clicar no checkbox, você
+            expressamente declara que está
             ciente de
             que a nossa empresa poderá realizar contato com você via e-mail, telefone, WhatsApp ou qualquer outro meio e
             enviar comunicações para o fim exclusivo de apresentar conteúdos, produtos e serviços relacionados à
@@ -158,8 +170,9 @@
 
     <input type="hidden" name="lead_source" value="Site principal">
 
-    <div class="g-recaptcha" data-sitekey="6LfO7BkiAAAAAO6WG5Wbu19oW9vXZPXewris3h_k"></div>
+    <div class="g-recaptcha" data-sitekey="6LfO7BkiAAAAAO6WG5Wbu19oW9vXZPXewris3h_k" aria-required="true"></div>
     <br>
+
     <input type="submit" name="submit">
 
 </form>
